@@ -1,0 +1,1 @@
+# wc-promoted-product
