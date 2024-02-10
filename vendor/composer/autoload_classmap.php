@@ -7,7 +7,7 @@ $baseDir = dirname($vendorDir);
 
 return array(
     'Composer\\InstalledVersions' => $vendorDir . '/composer/InstalledVersions.php',
-    'WooCommerce_Promoted_Product' => $baseDir . '/includes/class-wcpp-main.php',
-    'WooCommerce_Promoted_Product_Front' => $baseDir . '/includes/front/class-wcpp-front.php',
-    'WooCommerce_Promoted_Product_Settings' => $baseDir . '/includes/admin/class-wcpp-admin-settings.php',
+    'wcpp\\WooCommerce_Promoted_Product' => $baseDir . '/includes/class-wcpp-main.php',
+    'wcpp\\admin\\WooCommerce_Promoted_Product_Settings' => $baseDir . '/includes/admin/class-wcpp-admin-settings.php',
+    'wcpp\\front\\WooCommerce_Promoted_Product_Front' => $baseDir . '/includes/front/class-wcpp-front.php',
 );

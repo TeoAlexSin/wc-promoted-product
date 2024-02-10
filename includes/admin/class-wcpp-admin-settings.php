@@ -1,4 +1,7 @@
 <?php
+
+namespace wcpp\admin;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
@@ -34,8 +37,9 @@ class WooCommerce_Promoted_Product_Settings {
         // The CRON callback to delete the option of active product.
         add_action( 'unset_active_product_schedule', array( $this, 'unset_active_product' ) );
 
-        // Enqueue edit js.
-        wp_enqueue_script( 'wc-promoted-product-admin', WC_PROMOTED_PRODUCT_URL . 'assets/js/admin-edit.js', array( 'jquery' ), WC_PROMOTED_PRODUCT_VERSION, true );
+        // Enqueue admin js.
+        add_action( 'admin_enqueue_scripts', array( $this, 'enqueue_admin_scripts' ) );
+ 
 	}
 
 
@@ -273,5 +277,15 @@ class WooCommerce_Promoted_Product_Settings {
      */
     public function unset_active_product() {
         delete_option( 'wc_promo_product_active' );
+    }
+
+    /**
+     * Enqueues the admin needed scripts.
+     * 
+     * @return void
+	 * @since 1.0.0
+     */
+    public function enqueue_admin_scripts() {
+        wp_enqueue_script( 'wc-promoted-product-admin', WC_PROMOTED_PRODUCT_URL . 'assets/js/admin-edit.js', array( 'jquery' ), WC_PROMOTED_PRODUCT_VERSION, true );
     }
 }

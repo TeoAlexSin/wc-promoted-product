@@ -1,4 +1,7 @@
 <?php
+
+namespace wcpp;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
@@ -57,7 +60,7 @@ class WooCommerce_Promoted_Product {
 		// Load admin files.
 		if ( is_admin() ) {
 			// Load settings class.
-			new WooCommerce_Promoted_Product_Settings();
+			new \wcpp\admin\WooCommerce_Promoted_Product_Settings();
 		}
 	}
 
@@ -70,7 +73,7 @@ class WooCommerce_Promoted_Product {
 		// Load frontend files.
 		if ( ! is_admin() ) {
 			// Load the frontend class.
-			new WooCommerce_Promoted_Product_Front();
+			new \wcpp\front\WooCommerce_Promoted_Product_Front();
 		}
 	}
 

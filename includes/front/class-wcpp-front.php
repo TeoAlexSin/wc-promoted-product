@@ -1,4 +1,7 @@
 <?php
+
+namespace wcpp\front;
+
 if ( ! defined( 'ABSPATH' ) ) {
 	exit;
 } // Exit if accessed directly
@@ -19,8 +22,7 @@ class WooCommerce_Promoted_Product_Front {
 	 */
 	public function __construct() {
         // Enqueue view js.
-        wp_enqueue_script( 'wc-promoted-product-admin', WC_PROMOTED_PRODUCT_URL . 'assets/js/front-view.js', array( 'jquery' ), WC_PROMOTED_PRODUCT_VERSION, true );
-        wp_add_inline_script( 'wc-promoted-product-admin', "const wcpp_template = '" . addslashes( $this->render_promoted_product() ) . "'" , 'before' );
+        add_action( 'wp_enqueue_scripts', array( $this, 'enqueue_front_scripts' ) );
 	}
 
 
@@ -64,4 +66,16 @@ class WooCommerce_Promoted_Product_Front {
         }
         return '';
     }
+
+    /**
+     * Enqueues the front-end needed scripts.
+     * 
+     * @return void
+	 * @since 1.0.0
+     */
+    public function enqueue_front_scripts() {
+        wp_enqueue_script( 'wc-promoted-product-front', WC_PROMOTED_PRODUCT_URL . 'assets/js/front-view.js', array( 'jquery' ), WC_PROMOTED_PRODUCT_VERSION, true );
+        wp_add_inline_script( 'wc-promoted-product-front', "const wcpp_template = '" . addslashes( $this->render_promoted_product() ) . "'" , 'before' );
+    }
+
 }

@@ -8,9 +8,9 @@ class ComposerStaticInit56c49e0cef409a6b3773ec6a9081cf9d
 {
     public static $classMap = array (
         'Composer\\InstalledVersions' => __DIR__ . '/..' . '/composer/InstalledVersions.php',
-        'WooCommerce_Promoted_Product' => __DIR__ . '/../..' . '/includes/class-wcpp-main.php',
-        'WooCommerce_Promoted_Product_Front' => __DIR__ . '/../..' . '/includes/front/class-wcpp-front.php',
-        'WooCommerce_Promoted_Product_Settings' => __DIR__ . '/../..' . '/includes/admin/class-wcpp-admin-settings.php',
+        'wcpp\\WooCommerce_Promoted_Product' => __DIR__ . '/../..' . '/includes/class-wcpp-main.php',
+        'wcpp\\admin\\WooCommerce_Promoted_Product_Settings' => __DIR__ . '/../..' . '/includes/admin/class-wcpp-admin-settings.php',
+        'wcpp\\front\\WooCommerce_Promoted_Product_Front' => __DIR__ . '/../..' . '/includes/front/class-wcpp-front.php',
     );
 
     public static function getInitializer(ClassLoader $loader)

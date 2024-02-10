@@ -19,5 +19,5 @@ add_action( 'plugins_loaded', 'wc_promo_product_load' );
 function wc_promo_product_load() {
 	// require autoloader
     require_once dirname( WC_PROMOTED_PRODUCT_FILE ) . '/vendor/autoload.php';
-	WooCommerce_Promoted_Product::get_instance();
+	\wcpp\WooCommerce_Promoted_Product::get_instance();
 }
